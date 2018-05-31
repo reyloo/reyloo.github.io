@@ -7,7 +7,35 @@
     noSupport: 'The browser does not support'
   },
   localSearch: undefined
-} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">Luo</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">1</span></a></div></div></div><nav class="no-bg" id="nav" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">REY</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">REY</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item"><a class="article-title" href="/2018/05/30/hello-world/">Hello World</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-05-30</time><div class="content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">Luo</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">1</span></a></div></div></div><nav class="no-bg" id="nav" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">REY</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="site-info"><div id="site-title">REY</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item"><a class="article-title" href="/2018/05/31/vim/">【Ubuntu】卸载自带的Vim，安装和配置新Vim</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-05-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Ubuntu/">Ubuntu</a></span><div class="content"><h2 id="1-卸载Vim-GVIM"><a href="#1-卸载Vim-GVIM" class="headerlink" title="1.卸载Vim GVIM"></a>1.卸载Vim GVIM</h2><pre><code>sudo apt-get remove --purge vim (--purge 是完全删除，会连配置文件一起删除)
+
+sudo apt-get remove --purge vim-gtk vim-doc cscope
+
+sudo apt-get clean
+</code></pre><h2 id="2-安装Vim-GVIM"><a href="#2-安装Vim-GVIM" class="headerlink" title="2.安装Vim GVIM"></a>2.安装Vim GVIM</h2><pre><code>sudo apt-get install vim
+
+sudo apt-get install vim-gtk vim-doc cscope
+</code></pre><h2 id="3-配置vim"><a href="#3-配置vim" class="headerlink" title="3.配置vim"></a>3.配置vim</h2><p>Linux下vim 默认的配置文件 <code>/etc/vim/vimrc</code></p>
+<p>用户默认配置文件<code>~/.vimrc</code></p>
+<p>如果想一次配置，所有用户都能使用，那就修改 <code>/etc/vim/vimrc</code>，如果只想当前用户可以使用，则修改<code>~/.vimrc</code></p>
+<p>针对开发配置</p>
+<pre><code>au FileType php,c,java,javascript,html,htm,smarty call SetOption()
+function! SetOption()
+  set expandtab    &quot; 使用空格代替tab
+  set shiftwidth=4 &quot; 设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4
+  set tabstop=4    &quot; 用4个空格代替1个tab
+  set sts=4        &quot; 设置softtabstop 为 4，输入tab后就跳了4格.
+  set cindent      &quot; C语言方式缩进
+  set smartindent  &quot; 智能缩进
+  set autoindent   &quot; 自动缩进
+  set smarttab     &quot; 只在行首用tab，其他地方的tab都用空格代替
+  set showmatch    &quot; 在输入括号时光标会短暂地跳到与之相匹配的括号处
+  &quot; set fdm=indent &quot; 代码折叠
+  set lbr
+  set tw=500
+  set wrap         &quot; 自动换行
+endfunction
+</code></pre></div><hr></div><div class="recent-post-item"><a class="article-title" href="/2018/05/30/hello-world/">Hello World</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-05-30</time><div class="content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
